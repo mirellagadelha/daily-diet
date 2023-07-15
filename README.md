@@ -1,17 +1,22 @@
-### Functional Requirements
+# daily-diet
 
-- [x] Users should be able to create an account
-- [x] Users should be able to register a new meal associated with their account
-- [x] Users should be able to update a meal associated with their account
-- [x] Users should be able to delete a meal associated with their account
-- [x] Users should be able to visualize all meals associated with their account
-- [x] Users should be able to visualize a specific meal associated with their account
-- [x] The app should be able to identify users on request
-- [ ] The app should be able to return metrics about the user's meals associated with their account
+This is a simple codebase developed using Node.js, TypeScript, and Fastify framework, with a strong emphasis on Test-Driven Development (TDD). The purpose of this REST API is to facilitate the management of daily diet meals. The integration of Prisma allows seamless interaction with the underlying database, enhancing data persistence and retrieval capabilities.
 
-### Non-Functional Requirements
+## Installation
 
-- [x] The user passwords should be encrypted using a secure cryptographic;
-- [x] The app data should be stored and persisted in a SQLite database;
-- [ ] The app should implement pagination for all lists, limiting the number of items displayed per page to 20.
-- [x] The app should utilize JSON Web Tokens (JWT) for user identification and authentication
+### System Requirements
+
+You need to have this installed to configure this project locally:
+
+- [Node.js](https://nodejs.org/en/download/) (v14.17.0 or higher)
+- Yarn (v1.22.10 or higher) or NPM (v6.14.13 or higher)
+
+
+Install the dependencies for the **daily-diet** project:
+```sh
+$ yarn install
+```
+Run the **daily-diet** project:
+```sh
+$ yarn start:dev
+```
