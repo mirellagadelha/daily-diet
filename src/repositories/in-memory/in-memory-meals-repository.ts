@@ -30,7 +30,7 @@ export class InMemoryMealsRepository implements MealsRepository {
       name: data.name,
       description: data.description || '',
       datetime: data.datetime ? new Date(data.datetime) : new Date(),
-      is_diet_meal: false,
+      is_diet_meal: data.is_diet_meal || false,
     };
 
     this.items.push(meal);
