@@ -8,25 +8,24 @@ datasource db {
 }
 
 model Meal {
-  id           String   @id @default(uuid())
-  name         String
-  description  String?
-  datetime     DateTime @default(now())
-  is_diet_meal Boolean  @default(true)
-  user_id      String
-  user         User     @relation(fields: [user_id], references: [id])
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  datetime    DateTime @default(now())
+  isDietMeal  Boolean  @default(true) @map("is_diet_meal")
+  userId      String   @map("user_id")
+  user        User     @relation(fields: [userId], references: [id])
 
   @@map("meals")
 }
 
 model User {
-  id         String   @id @default(uuid())
-  name       String
-  email      String   @unique
-  password   String   @default("")
-  created_at DateTime @default(now())
-
-  meals Meal[]
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String   @default("")
+  createdAt DateTime @default(now()) @map("created_at")
+  meals     Meal[]
 
   @@map("users")
 }
