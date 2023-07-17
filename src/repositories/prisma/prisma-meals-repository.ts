@@ -7,7 +7,7 @@ export class PrismaMealsRepository implements MealsRepository {
     const meal = await prisma.meal.findUnique({
       where: {
         id,
-        user_id: userId,
+        userId,
       },
     });
 
@@ -17,7 +17,7 @@ export class PrismaMealsRepository implements MealsRepository {
   async findManyByUserId(userId: string) {
     const meals = await prisma.meal.findMany({
       where: {
-        user_id: userId,
+        userId,
       },
     });
 

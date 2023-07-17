@@ -1,5 +1,5 @@
 import { MealsRepository } from '@/repositories/meals-repository';
-import { ResourceNotFoundError } from './errors/resource-not-found-error';
+import { ResourceNotFoundError } from '../errors/resource-not-found-error';
 
 interface DeleteMealUseCaseRequest {
   mealId: string;

@@ -2,15 +2,19 @@ import { FastifyInstance } from 'fastify';
 import { verifyJWT } from '@/http/middlewares/verify-jwt';
 import { create } from './create';
 import { updateById } from './update-by-id';
-import { deleteById } from './delete-by-id';
 import { fetchUserMeals } from './fetch-user-meals';
 import { retrieveById } from './retrieve-by-id';
+import { deleteById } from './delete-by-id';
+import { retrieveUserMetrics } from './retrieve-user-metrics';
 
 export async function mealsRoutes(app: FastifyInstance) {
-  app.get('/', { onRequest: [verifyJWT] }, fetchUserMeals);
-  app.post('/', { onRequest: [verifyJWT] }, create);
+  app.addHook('onRequest', verifyJWT);
 
-  app.get('/:id', { onRequest: [verifyJWT] }, retrieveById);
-  app.patch('/:id', { onRequest: [verifyJWT] }, updateById);
-  app.delete('/:id', { onRequest: [verifyJWT] }, deleteById);
+  app.post('/', create);
+  app.patch('/:id', updateById);
+  app.delete('/:id', deleteById);
+
+  app.get('/', fetchUserMeals);
+  app.get('/:id', retrieveById);
+  app.get('/metrics', retrieveUserMetrics);
 }

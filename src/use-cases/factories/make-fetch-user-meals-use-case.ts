@@ -1,5 +1,5 @@
 import { PrismaMealsRepository } from '@/repositories/prisma/prisma-meals-repository';
-import { FetchUserMealsUseCase } from '../fetch-user-meals';
+import { FetchUserMealsUseCase } from '../meals/fetch-user-meals';
 
 export function makeFetchUserMealsUseCase() {
   const mealsRepository = new PrismaMealsRepository();

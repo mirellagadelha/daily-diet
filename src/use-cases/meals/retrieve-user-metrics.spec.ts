@@ -14,16 +14,16 @@ describe('Retrieve User Metrics Use Case', () => {
 
   it('should return the user metrics', async () => {
     await mealsRepository.create({
-      name: 'New Meal',
+      name: 'Meal',
       isDietMeal: true,
       userId: 'user-id',
     });
 
-    await expect(
-      sut.execute({
-        userId: 'user-id',
-      }),
-    ).resolves.toEqual(
+    const { metrics } = await sut.execute({
+      userId: 'user-id',
+    });
+
+    expect(metrics).toEqual(
       expect.objectContaining({
         totalMeals: 1,
       }),
@@ -32,37 +32,33 @@ describe('Retrieve User Metrics Use Case', () => {
 
   it('should return the best diet meal sequence', async () => {
     await mealsRepository.create({
-      name: 'New Meal',
+      name: 'Meal',
       isDietMeal: true,
       userId: 'user-id',
     });
 
     await mealsRepository.create({
-      name: 'New Meal',
+      name: 'Meal',
       isDietMeal: true,
       userId: 'user-id',
     });
 
     await mealsRepository.create({
-      name: 'New Meal',
+      name: 'Meal',
       isDietMeal: false,
       userId: 'user-id',
     });
 
     await mealsRepository.create({
-      name: 'New Meal',
+      name: 'Meal',
       isDietMeal: true,
       userId: 'user-id',
     });
 
-    await expect(
-      sut.execute({
-        userId: 'user-id',
-      }),
-    ).resolves.toEqual(
-      expect.objectContaining({
-        bestDietMealSequence: 2,
-      }),
-    );
+    const { metrics } = await sut.execute({
+      userId: 'user-id',
+    });
+
+    expect(metrics.bestDietMealSequence).toHaveLength(2);
   });
 });

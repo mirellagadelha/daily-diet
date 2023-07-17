@@ -2,7 +2,7 @@ import { MealsRepository } from '@/repositories/meals-repository';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { InMemoryMealsRepository } from '@/repositories/in-memory/in-memory-meals-repository';
 import { DeleteMealUseCase } from './delete-meal';
-import { ResourceNotFoundError } from './errors/resource-not-found-error';
+import { ResourceNotFoundError } from '../errors/resource-not-found-error';
 
 let mealsRepository: MealsRepository;
 let sut: DeleteMealUseCase;
@@ -15,8 +15,8 @@ describe('Delete Meal Use Case', () => {
 
   it('should delete a meal', async () => {
     const meal = await mealsRepository.create({
-      userId: 'user-id',
       name: 'Meal',
+      userId: 'user-id',
     });
 
     await expect(
@@ -38,8 +38,8 @@ describe('Delete Meal Use Case', () => {
 
   it('should not be able to delete a meal from another user', async () => {
     const meal = await mealsRepository.create({
-      userId: 'user-id',
       name: 'Meal',
+      userId: 'user-id',
     });
 
     await expect(

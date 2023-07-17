@@ -1,21 +1,22 @@
 import { Meal } from '@prisma/client';
 
-export async function getBestDietMealSequence(meals: Meal[]) {
-  let currentDietMealSequence = 0;
-  let bestDietMealSequence = 0;
+export function getBestDietMealSequence(meals: Meal[]): Meal[] {
+  let currentDietMealSequence: Meal[] = [];
+  let bestDietMealSequence: Meal[] = [];
 
   meals.forEach((meal) => {
     if (meal.isDietMeal) {
-      // Increment the current sequence count
-      currentDietMealSequence += 1;
+      // Add the current meal to the current sequence array
+      currentDietMealSequence.push(meal);
 
       // Update the best sequence if the current sequence is longer
-      if (currentDietMealSequence > bestDietMealSequence) {
-        bestDietMealSequence = currentDietMealSequence;
+      if (currentDietMealSequence.length > bestDietMealSequence.length) {
+        bestDietMealSequence = [...currentDietMealSequence];
       }
-    } else {
-      // Reset the current sequence count
-      currentDietMealSequence = 0;
+    }
+
+    if (!meal.isDietMeal) {
+      currentDietMealSequence = [];
     }
   });
 

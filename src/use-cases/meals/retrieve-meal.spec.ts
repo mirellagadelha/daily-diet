@@ -1,7 +1,7 @@
 import { InMemoryMealsRepository } from '@/repositories/in-memory/in-memory-meals-repository';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { RetrieveMealUseCase } from './retrieve-meal';
-import { ResourceNotFoundError } from './errors/resource-not-found-error';
+import { ResourceNotFoundError } from '../errors/resource-not-found-error';
 
 let mealsRepository: InMemoryMealsRepository;
 let sut: RetrieveMealUseCase;
@@ -23,7 +23,7 @@ describe('Retrieve Meal Use Case', () => {
       userId: 'user-id',
     });
 
-    expect(meal).toEqual(expect.objectContaining({ name: 'New Meal' }));
+    expect(meal).toEqual(expect.objectContaining({ name: 'Meal' }));
   });
 
   it('should throw an error if the meal does not exist', async () => {

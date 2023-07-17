@@ -27,14 +27,14 @@ describe('Register Use Case', () => {
     const email = 'user@email.com';
 
     await sut.execute({
-      name: 'User One',
+      name: 'User',
       email,
       password: 'password',
     });
 
     expect(() =>
       sut.execute({
-        name: 'User Two',
+        name: 'User',
         email,
         password: 'password',
       }),

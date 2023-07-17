@@ -1,5 +1,5 @@
 import { PrismaMealsRepository } from '@/repositories/prisma/prisma-meals-repository';
-import { RetrieveMealUseCase } from '../retrieve-meal';
+import { RetrieveMealUseCase } from '../meals/retrieve-meal';
 
 export function makeRetrieveMealUseCase() {
   const mealsRepository = new PrismaMealsRepository();

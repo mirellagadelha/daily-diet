@@ -16,9 +16,9 @@ export async function retrieveById(
     .parse(request.params);
 
   try {
-    const retrieveMealCase = makeRetrieveMealUseCase();
+    const retrieveMealUseCase = makeRetrieveMealUseCase();
 
-    const { meal } = await retrieveMealCase.execute({
+    const { meal } = await retrieveMealUseCase.execute({
       mealId: id,
       userId: sub,
     });
