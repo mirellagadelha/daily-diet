@@ -23,11 +23,11 @@ export class RegisterMealUseCase {
     isDietMeal,
   }: RegisterMealUseCaseRequest) {
     const meal = await this.mealsRepository.create({
-      user_id: userId,
+      userId,
       name,
       description,
       datetime,
-      is_diet_meal: isDietMeal,
+      isDietMeal,
     });
 
     return {

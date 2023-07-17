@@ -14,11 +14,11 @@ describe('Update Meal Use Case', () => {
 
   it('should be able to update a meal', async () => {
     const createdMeal = await mealsRepository.create({
-      name: 'New Meal',
-      description: 'New Meal Description',
+      name: 'Meal',
+      description: 'Description',
       datetime: new Date(2023, 0, 1, 12, 0, 0),
-      is_diet_meal: false,
-      user_id: 'user-id',
+      isDietMeal: false,
+      userId: 'user-id',
     });
 
     const { meal } = await sut.execute({
@@ -46,11 +46,11 @@ describe('Update Meal Use Case', () => {
 
   it('should not be able to update a meal from another user', async () => {
     const createdMeal = await mealsRepository.create({
-      name: 'New Meal',
-      description: 'New Meal Description',
+      name: 'Meal',
+      description: 'Description',
       datetime: new Date(2023, 0, 1, 12, 0, 0),
-      is_diet_meal: false,
-      user_id: 'user-id',
+      isDietMeal: false,
+      userId: 'user-id',
     });
 
     await expect(

@@ -15,8 +15,8 @@ describe('Register Use Case', () => {
 
   it('should register a new user', async () => {
     const { user } = await sut.execute({
-      name: 'New User',
-      email: 'new-user@email.com',
+      name: 'User',
+      email: 'user@email.com',
       password: 'password',
     });
 
@@ -43,8 +43,8 @@ describe('Register Use Case', () => {
 
   it('should hash the user password upon registration', async () => {
     const { user } = await sut.execute({
-      name: 'New User',
-      email: 'new-user@email.com',
+      name: 'User',
+      email: 'user@email.com',
       password: 'password',
     });
 

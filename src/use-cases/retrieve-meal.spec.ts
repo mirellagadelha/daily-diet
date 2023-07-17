@@ -14,8 +14,8 @@ describe('Retrieve Meal Use Case', () => {
 
   it('should return a meal', async () => {
     const createdMeal = await mealsRepository.create({
-      name: 'New Meal',
-      user_id: 'user-id',
+      name: 'Meal',
+      userId: 'user-id',
     });
 
     const { meal } = await sut.execute({

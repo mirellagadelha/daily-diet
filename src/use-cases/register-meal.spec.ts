@@ -13,8 +13,8 @@ describe('Register Meal Use Case', () => {
 
   it('should register a new meal', async () => {
     const { meal } = await sut.execute({
-      name: 'New Meal',
-      description: 'New Meal Description',
+      name: 'Meal',
+      description: 'Description',
       datetime: new Date(),
       isDietMeal: false,
       userId: 'user-id',

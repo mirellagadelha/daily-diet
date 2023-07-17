@@ -41,7 +41,7 @@ export class UpdateMealUseCase {
       name: name || meal.name,
       description: description || meal.description,
       datetime: datetime || meal.datetime,
-      is_diet_meal: isDietMeal || meal.is_diet_meal,
+      isDietMeal: isDietMeal || meal.isDietMeal,
     };
 
     await this.mealsRepository.save(updatedMeal);

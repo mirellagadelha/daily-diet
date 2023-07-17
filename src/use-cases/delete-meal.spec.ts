@@ -15,8 +15,8 @@ describe('Delete Meal Use Case', () => {
 
   it('should delete a meal', async () => {
     const meal = await mealsRepository.create({
-      user_id: 'user-id',
-      name: 'Meal Name',
+      userId: 'user-id',
+      name: 'Meal',
     });
 
     await expect(
@@ -38,8 +38,8 @@ describe('Delete Meal Use Case', () => {
 
   it('should not be able to delete a meal from another user', async () => {
     const meal = await mealsRepository.create({
-      user_id: 'user-id',
-      name: 'Meal Name',
+      userId: 'user-id',
+      name: 'Meal',
     });
 
     await expect(

@@ -7,7 +7,7 @@ export class InMemoryMealsRepository implements MealsRepository {
 
   async findByIdAndUserId(id: string, userId: string) {
     const meal = this.items.find(
-      (item) => item.id === id && item.user_id === userId,
+      (item) => item.id === id && item.userId === userId,
     );
 
     if (!meal) {
@@ -18,7 +18,7 @@ export class InMemoryMealsRepository implements MealsRepository {
   }
 
   async findManyByUserId(userId: string) {
-    const meals = this.items.filter((item) => item.user_id === userId);
+    const meals = this.items.filter((item) => item.userId === userId);
 
     return meals;
   }
@@ -26,11 +26,11 @@ export class InMemoryMealsRepository implements MealsRepository {
   async create(data: Prisma.MealUncheckedCreateInput) {
     const meal = {
       id: randomUUID(),
-      user_id: data.user_id,
+      userId: data.userId,
       name: data.name,
       description: data.description || '',
       datetime: data.datetime ? new Date(data.datetime) : new Date(),
-      is_diet_meal: data.is_diet_meal || false,
+      isDietMeal: data.isDietMeal || false,
     };
 
     this.items.push(meal);

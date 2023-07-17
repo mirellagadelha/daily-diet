@@ -25,7 +25,7 @@ export class RetrieveUserMetricsUseCase {
     const meals = await this.mealsRepository.findManyByUserId(userId);
 
     const totalMeals = meals.length;
-    const totalDietMeals = meals.filter((meal) => meal.is_diet_meal).length;
+    const totalDietMeals = meals.filter((meal) => meal.isDietMeal).length;
 
     const totalNonDietMeals = totalMeals - totalDietMeals;
     const bestDietMealSequence = await getBestDietMealSequence(meals);

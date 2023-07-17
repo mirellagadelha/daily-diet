@@ -15,12 +15,12 @@ describe('Fetch User Meals Use Case', () => {
   it('should return a list of meals', async () => {
     await mealsRepository.create({
       name: 'Meal One',
-      user_id: 'user-id',
+      userId: 'user-id',
     });
 
     await mealsRepository.create({
       name: 'Meal Two',
-      user_id: 'user-id',
+      userId: 'user-id',
     });
 
     const { meals } = await sut.execute({
@@ -37,12 +37,12 @@ describe('Fetch User Meals Use Case', () => {
   it('should not return meals from another user', async () => {
     await mealsRepository.create({
       name: 'Meal One',
-      user_id: 'user-id',
+      userId: 'user-id',
     });
 
     await mealsRepository.create({
       name: 'Meal Two',
-      user_id: 'user-id',
+      userId: 'user-id',
     });
   });
 });
